@@ -4,46 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Wedding</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f9f9f9;
-            text-align: center;
-            padding: 50px;
-        }
-        .envelope {
-            width: 200px;
-            height: 150px;
-            background-color: #fff;
-            border: 2px solid #ddd;
-            margin: 0 auto;
-            cursor: pointer;
-            position: relative;
-        }
-        .scroll {
-            display: none;
-            width: 200px;
-            height: 300px;
-            background-color: #fafafa;
-            border: 1px solid #ddd;
-            margin: 20px auto;
-            padding: 20px;
-            overflow: auto;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Our Wedding</h1>
-    <div class="envelope" onclick="openEnvelope()">
-        <p>Click to Open</p>
-    </div>
-    <div class="scroll" id="scroll">
-        <p>Aquí va el repertorio...</p>
-    </div>
-    <script>
-        function openEnvelope() {
-            document.getElementById('scroll').style.display = 'block';
-        }
-    </script>
+    <audio id="background-music" loop autoplay>
+        <source src="assets/musica1.mp3" type="audio/mp3">
+        Tu navegador no soporta audio.
+    </audio>
+
+    <header>
+        <h1>Our Wedding</h1>
+    </header>
+
+    <section id="sobre">
+        <div class="sobre" onclick="abrirSobre()">
+            <img src="assets/sobre_cerrado.jpg" alt="Sobre cerrado">
+            <div id="pergamino" class="pergamino">
+                <p>Bienvenidos a nuestra boda...</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="galeria">
+        <h2>Galería de Fotos</h2>
+        <div class="slider">
+            <img src="assets/foto1.jpg" class="slide">
+            <img src="assets/foto2.jpg" class="slide">
+        </div>
+    </section>
+
+    <section id="rutas">
+        <h2>Rutas Gastronómicas</h2>
+        <p>Aquí irá la información sobre las rutas.</p>
+    </section>
+
+    <section id="eventos">
+        <h2>Eventos</h2>
+        <p>Aquí irá la lista de eventos.</p>
+    </section>
+
+    <script src="script.js"></script>
 </body>
 </html>
