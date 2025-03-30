@@ -5,30 +5,79 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invitación de Boda</title>
     <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
 </head>
 <body>
-    <div id="language-selector">
-        <button id="spanish-flag">🇪🇸</button>
-        <button id="english-flag">🇬🇧</button>
+    <!-- Música de fondo -->
+    <audio id="music" autoplay loop>
+        <source src="assets/your-song.mp3" type="audio/mpeg">
+        Tu navegador no soporta audio.
+    </audio>
+
+    <!-- Selector de idioma -->
+    <div id="idiomas">
+        <img src="assets/spanish-flag.png" alt="Español" onclick="cambiarIdioma('es')">
+        <img src="assets/english-flag.png" alt="English" onclick="cambiarIdioma('en')">
     </div>
-    <div id="invitation-container">
-        <div id="envelope">
-            <div id="invitation">
-                <p id="invitation-text">¡Estás invitado a nuestra boda!</p>
+
+    <!-- Fondo de pantalla -->
+    <div id="fondo"></div>
+
+    <!-- Texto inicial animado -->
+    <div id="texto-inicial" class="fade-slide-in">
+        <p>¡Nos casamos y queremos celebrarlo contigo!</p>
+    </div>
+
+    <!-- Sección de Invitación (Pergamino) -->
+    <div id="pergamino">
+        <p id="texto-invitacion">¡Nos casamos! Acompáñanos en nuestro gran día...</p>
+    </div>
+
+    <!-- Botones de eventos -->
+    <div id="eventos-container">
+        <button class="evento-btn" onclick="mostrarEventos()">Eventos</button>
+        <div id="eventos" style="display:none;">
+            <ul>
+                <li>Ceremonia - 17:00</li>
+                <li>Banquete - 19:00</li>
+                <li>Fiesta - 22:00</li>
+            </ul>
+        </div>
+
+        <button class="evento-btn" onclick="mostrarAlojamientos()">Alojamientos y visitas</button>
+        <div id="alojamientos" style="display:none;">
+            <ul>
+                <li><a href="https://hotel1.com">Hotel 1</a></li>
+                <li><a href="https://hotel2.com">Hotel 2</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Localización -->
+    <div id="localizacion-container">
+        <button class="evento-btn" onclick="mostrarLocalizacion()">Localización</button>
+        <div id="localizacion" style="display:none;">
+            <a href="https://maps.google.com" target="_blank">
+                <img src="assets/Marambay-log.png" alt="Localización de Marambay">
+            </a>
+        </div>
+    </div>
+
+    <!-- Galería -->
+    <div id="galeria-container">
+        <button class="evento-btn" onclick="mostrarGaleria()">Galería</button>
+        <div id="galeria" style="display:none;">
+            <div class="galeria-imagen">
+                <img src="assets/foto1.jpg" alt="Foto 1">
+            </div>
+            <div class="galeria-imagen">
+                <img src="assets/foto2.jpg" alt="Foto 2">
+            </div>
+            <div class="galeria-imagen">
+                <img src="assets/foto3.jpg" alt="Foto 3">
             </div>
         </div>
     </div>
-    <div id="events-dropdown">
-        <button id="events-button">Eventos</button>
-        <ul id="events-list">
-            <li>Ceremonia - 12:00 PM</li>
-            <li>Recepción - 1:00 PM</li>
-            <li>Baile - 2:00 PM</li>
-        </ul>
-    </div>
-    <audio id="background-music" loop>
-        <source src="audio/your-song.mp3" type="audio/mp3">
-    </audio>
-    <script src="script.js"></script>
 </body>
 </html>
+
