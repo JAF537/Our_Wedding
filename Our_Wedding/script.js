@@ -1,70 +1,29 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const backgroundMusic = document.getElementById('background-music');
-    const invitationText = document.getElementById('invitation-text');
-    const invitation = document.getElementById('invitation');
-    const eventsButton = document.getElementById('events-button');
-    const eventsList = document.getElementById('events-list');
-    const spanishFlag = document.getElementById('spanish-flag');
-    const englishFlag = document.getElementById('english-flag');
-
-    let currentLanguage = 'es';
-    let backgroundImages = ['images/background1.jpg', 'images/background2.jpg', 'images/background3.jpg'];
-    let currentImageIndex = 0;
-
-    const translations = {
-        es: {
-            invitation: '¡Estás invitado a nuestra boda!',
-            eventsButton: 'Eventos',
-            events: ['Ceremonia - 12:00 PM', 'Recepción - 1:00 PM', 'Baile - 2:00 PM']
-        },
-        en: {
-            invitation: 'You are invited to our wedding!',
-            eventsButton: 'Events',
-            events: ['Ceremony - 12:00 PM', 'Reception - 1:00 PM', 'Dance - 2:00 PM']
-        }
-    };
-
-    backgroundMusic.play();
-
-    function changeBackgroundImage() {
-        const nextImageIndex = (currentImageIndex + 1) % backgroundImages.length;
-        document.body.style.backgroundImage = `url('${backgroundImages[nextImageIndex]}')`;
-        currentImageIndex = nextImageIndex;
+// Cambiar idioma en la página
+function cambiarIdioma(idioma) {
+    if (idioma === 'es') {
+        document.getElementById('texto-invitacion').innerText = "¡Nos casamos! Acompáñanos en nuestro gran día...";
+    } else {
+        document.getElementById('texto-invitacion').innerText = "We're getting married! Join us on our big day...";
     }
+}
 
-    setInterval(changeBackgroundImage, 5000);
+// Mostrar y ocultar los desplegables
+function mostrarEventos() {
+    let eventos = document.getElementById('eventos');
+    eventos.style.display = eventos.style.display === 'block' ? 'none' : 'block';
+}
 
-    function showInvitation() {
-        invitation.style.display = 'block';
-        setTimeout(() => {
-            invitation.style.opacity = '1';
-        }, 100);
-        updateLanguage();
-    }
+function mostrarAlojamientos() {
+    let alojamientos = document.getElementById('alojamientos');
+    alojamientos.style.display = alojamientos.style.display === 'block' ? 'none' : 'block';
+}
 
-    function updateLanguage() {
-        invitationText.innerHTML = translations[currentLanguage].invitation;
-        eventsButton.innerHTML = translations[currentLanguage].eventsButton;
-        eventsList.innerHTML = translations[currentLanguage].events.map(event => `<li>${event}</li>`).join('');
-    }
+function mostrarGaleria() {
+    let galeria = document.getElementById('galeria');
+    galeria.style.display = galeria.style.display === 'block' ? 'none' : 'block';
+}
 
-    setTimeout(showInvitation, 3000);
-
-    eventsButton.addEventListener('click', function() {
-        if (eventsList.style.display === 'none' || eventsList.style.display === '') {
-            eventsList.style.display = 'block';
-        } else {
-            eventsList.style.display = 'none';
-        }
-    });
-
-    spanishFlag.addEventListener('click', function() {
-        currentLanguage = 'es';
-        updateLanguage();
-    });
-
-    englishFlag.addEventListener('click', function() {
-        currentLanguage = 'en';
-        updateLanguage();
-    });
-});
+function mostrarLocalizacion() {
+    let localizacion = document.getElementById('localizacion');
+    localizacion.style.display = localizacion.style.display === 'block' ? 'none' : 'block';
+}
